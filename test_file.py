@@ -13,14 +13,8 @@ class Task(unittest.TestCase):
         execute("umount /data")
         execute("rmdir /data")
         execute("wipefs -a {}".format(self.vgpath))
-
-        print("Removing the Logical Volume {}".format(cli.lvname))
-        execute("lvremove -f {}" .format(cli.vgname), inp="y\n")
-
-        print("Removing the Volume Group {}".format(cli.vgname))
+        execute("lvremove -f {}" .format(cli.vgname))
         execute("vgremove {}".format(cli.vgname))
-        
-        print("Removing the Physical Volume {}".format(Task.disk))
         execute("pvremove {}" .format(disk))
 
 
