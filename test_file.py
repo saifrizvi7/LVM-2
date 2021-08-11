@@ -7,7 +7,6 @@ class Task(unittest.TestCase):
     disk = " ".join(cli.disk_name)
     
     def tearDown(self):
-        #destroying pv ater running the test
         disk = " ".join(cli.disk_name)
         
         self.vgpath = "/dev/{}/{}".format(cli.vgname,cli.lvname)
